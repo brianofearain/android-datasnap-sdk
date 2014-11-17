@@ -1,0 +1,44 @@
+// Top-level build file; configuration options common to all sub-projects/modules.
+apply plugin: 'idea'
+
+subprojects {
+  buildscript {
+    repositories {
+      mavenCentral()
+    }
+    dependencies {
+      classpath 'com.android.tools.build:gradle:0.12.+'
+    }
+  }
+
+  repositories {
+    mavenCentral()
+  }
+
+  group = GROUP
+  version = VERSION_NAME
+}
+
+ext {
+  versionCode = Integer.parseInt(VERSION_CODE)
+  versionName = VERSION_NAME
+
+  minSdkVersion = 14
+  targetSdkVersion = 18
+  compileSdkVersion = 19
+  buildToolsVersion = "19.1"
+}
+
+ext.libraries = [
+  amplitude: 'com.amplitude:android-sdk:1.4.1',
+  bugsnag: 'com.bugsnag:bugsnag-android:2.2.0',
+  countly: 'ly.count:sdk-android:13.11',
+  crittercism: 'com.crittercism:crittercism-android-agent:4.5.3',
+  flurry: files('libs/FlurryAnalytics-4.1.0.jar'),
+  googleAnalytics: 'com.google.android.gms:play-services:5.0.89',
+  mixpanel: 'com.mixpanel.android:mixpanel-android:4.2.1@aar',
+  quantcast: files('libs/QuantcastAndroidSdk.jar'),
+  tapstream: files('libs/Tapstream-2.7.1.jar'),
+  estimote: files('libs/estimote-sdk-preview.jar'),
+  gson: 'com.google.code.gson:gson:2.3'
+]

@@ -1,0 +1,3 @@
+include ':core'
+include ':all'
+include ':sample-app'

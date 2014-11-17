@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+
+dependencies {
+    compile rootProject.ext.libraries.gson
+    provided rootProject.ext.libraries.gson
+    provided rootProject.ext.libraries.amplitude
+  provided rootProject.ext.libraries.bugsnag
+  provided rootProject.ext.libraries.countly
+  provided rootProject.ext.libraries.crittercism
+  provided rootProject.ext.libraries.flurry
+  provided rootProject.ext.libraries.googleAnalytics
+  provided rootProject.ext.libraries.mixpanel
+  provided rootProject.ext.libraries.quantcast
+  provided rootProject.ext.libraries.tapstream
+  provided rootProject.ext.libraries.estimote
+    compile rootProject.ext.libraries.gson
+
+  androidTestCompile 'junit:junit:4.11'
+  androidTestCompile 'com.squareup:fest-android:1.0.8'
+  androidTestCompile 'org.mockito:mockito-core:1.9.5'
+  androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.1'
+}
+
+android {
+  compileSdkVersion rootProject.ext.compileSdkVersion
+  buildToolsVersion rootProject.ext.buildToolsVersion
+
+  defaultConfig {
+    minSdkVersion rootProject.ext.minSdkVersion
+    targetSdkVersion rootProject.ext.targetSdkVersion
+    versionCode rootProject.ext.versionCode
+    versionName rootProject.ext.versionName
+  }
+
+  lintOptions {
+    abortOnError false
+  }
+
+  packagingOptions {
+    exclude 'LICENSE.txt'
+  }
+}
+
+apply from: rootProject.file('gradle/checkstyle-library.gradle')
+apply from: rootProject.file('gradle/attach-lean-jar.gradle')
+apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
